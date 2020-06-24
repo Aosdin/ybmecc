@@ -1,0 +1,7 @@
+{
+  "DB_USERNAME": "admin",
+  "DB_PASSWORD": "dmddo1004!",
+  "DB_PORT": "3306",
+  "DB_HOST": "ybmeccdb.cmcerrkmbcnh.ap-northeast-2.rds.amazonaws.com",
+  "DB_NAME": "ybmecc"
+}

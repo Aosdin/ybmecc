@@ -1,0 +1,12 @@
+### TC추가
+POST http://{{host}}/tcUser
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+  "koNm": "김종환",
+  "enNm": "Aosdin",
+  "tcLv": 0,
+  "tcSt": 1
+}
