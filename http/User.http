@@ -1,12 +1,57 @@
 ### TC추가
-POST http://{{host}}/tcUser
+POST http://{{host}}/api/tcUser
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+Authorization: Bearer 1eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6dHJ1ZSwiZXhwIjoxNTkzMzI5MDEyLCJuYW1lIjoic2NoZW1hayJ9.CiW2z_5Y8I9qBzx2vI9_39DlevPdGuCoOq6lNqOOgFQ
+
+{
+  "koNm": "김종환1",
+  "enNm": "schemak7",
+  "tcLv": 0,
+  "tcSt": 1
+}
+
+### TC리스트
+GET http://{{host}}/api/tcUser
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6dHJ1ZSwiZXhwIjoxNTkzODQ4ODYwLCJuYW1lIjoic2NoZW1hayJ9.G8K3YrPgkPx2KUwFOGFDCinVWbB4atmJ-Bw6PelOe6w
+
+### TC업데이트
+PUT http://{{host}}/api/tcUser
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6dHJ1ZSwiZXhwIjoxNTkzODQ4ODYwLCJuYW1lIjoic2NoZW1hayJ9.G8K3YrPgkPx2KUwFOGFDCinVWbB4atmJ-Bw6PelOe6w
+
+{
+  "idx" : 20,
+  "koNm": "김종환",
+  "enNm": "schemak7777",
+  "tcLv": 1,
+  "tcSt": 1
+}
+
+### TC삭제(임시)
+DELETE http://{{host}}/api/tcUser
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6dHJ1ZSwiZXhwIjoxNTkzODQ4ODYwLCJuYW1lIjoic2NoZW1hayJ9.G8K3YrPgkPx2KUwFOGFDCinVWbB4atmJ-Bw6PelOe6w
+
+{
+  "idx": 20
+}
+
+### TC로그인
+POST http://{{host}}/signin
 Accept: */*
 Cache-Control: no-cache
 Content-Type: application/json
 
 {
-  "koNm": "김종환",
-  "enNm": "Aosdin",
-  "tcLv": 0,
-  "tcSt": 1
+  "id": "schemak",
+  "pwd": "dmddo1004!"
 }
