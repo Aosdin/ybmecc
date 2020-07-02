@@ -3,7 +3,7 @@
 node_modules
 /dist
 selenium-debug.log
-
+config.json
 # local env files
 .env.local
 .env.*.local
