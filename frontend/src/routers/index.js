@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 // modules
-import api from './api'
+import admin from './admin'
 
 // page
 import Main from '@/pages/Main'
@@ -18,7 +18,7 @@ const router = new VueRouter({
   linkActiveClass: 'active',
   mode: 'history',
   routes: [
-    api,
+    admin,
     { path: '/', name: 'main', component: Main }
   ]
 })

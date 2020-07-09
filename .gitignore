@@ -4,6 +4,7 @@ node_modules
 /dist
 selenium-debug.log
 config.json
+yarn.lock
 # local env files
 .env.local
 .env.*.local

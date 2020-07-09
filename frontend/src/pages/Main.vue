@@ -1,36 +1,16 @@
 <template>
-  <div class="main">
-    <h1>Main page</h1>
-    <router-link
-      :to="{ name: 'api-weather' }"
-    >
-      <button>
-        Go Weather
-      </button>
-    </router-link>
-  </div>
+  <v-app id="inspire">
+    <v-main>
+      <v-container
+              class="fill-height"
+              fluid
+      >
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-export default {
-  name: 'Main',
-  head: {
-    title: {
-      inner: 'Main'
-    },
-    // Meta tags
-    meta: [
-      { name: 'keywords', content: 'Main' }
-    ]
+  export default {
   }
-}
 </script>
-
-<style lang="scss" scoped>
-  .main {
-    text-align: center;
-    button {
-      border: 1px solid #ccc;
-    }
-  }
-</style>
