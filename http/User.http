@@ -1,16 +1,9 @@
-### TC추가
-POST http://{{host}}/api/tcUser
+### 관리자TC리스트
+GET http://{{host}}/api/tcSeniorUser
 Accept: */*
 Cache-Control: no-cache
 Content-Type: application/json
-Authorization: Bearer 1eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6dHJ1ZSwiZXhwIjoxNTkzMzI5MDEyLCJuYW1lIjoic2NoZW1hayJ9.CiW2z_5Y8I9qBzx2vI9_39DlevPdGuCoOq6lNqOOgFQ
-
-{
-  "koNm": "김종환1",
-  "enNm": "schemak7",
-  "tcLv": 0,
-  "tcSt": 1
-}
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6dHJ1ZSwiZXhwIjoxNTk0Mjk4MDIzLCJuYW1lIjoic2NoZW1hayJ9.DbBnayIDCDmxtQ80x3Gqrzn4fjjr9HyW2SIvmZ7q-m8
 
 ### TC리스트
 GET http://{{host}}/api/tcUser
@@ -18,6 +11,24 @@ Accept: */*
 Cache-Control: no-cache
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6dHJ1ZSwiZXhwIjoxNTkzODQ4ODYwLCJuYW1lIjoic2NoZW1hayJ9.G8K3YrPgkPx2KUwFOGFDCinVWbB4atmJ-Bw6PelOe6w
+
+### TC추가
+POST http://{{host}}/api/tcUser
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6dHJ1ZSwiZXhwIjoxNTk0MDIxMTU1LCJuYW1lIjoic2NoZW1hayJ9.pm4c4UzB-wNwCeIlDHxUxaV0fXIpQ4IhW8SNHrUmfnE
+
+{
+  "koNm": "김종환1",
+  "enNm": "schemak",
+  "tcId": "schemak1",
+  "tcPwd": "dmddo1004!",
+  "seniorIdx": 3,
+  "tcLv": 0,
+  "tcSt": 1,
+  "bdYmd": "19820525"
+}
 
 ### TC업데이트
 PUT http://{{host}}/api/tcUser
@@ -39,19 +50,61 @@ DELETE http://{{host}}/api/tcUser
 Accept: */*
 Cache-Control: no-cache
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6dHJ1ZSwiZXhwIjoxNTkzODQ4ODYwLCJuYW1lIjoic2NoZW1hayJ9.G8K3YrPgkPx2KUwFOGFDCinVWbB4atmJ-Bw6PelOe6w
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6dHJ1ZSwiZXhwIjoxNTk0MDIxMTU1LCJuYW1lIjoic2NoZW1hayJ9.pm4c4UzB-wNwCeIlDHxUxaV0fXIpQ4IhW8SNHrUmfnE
 
 {
-  "idx": 20
+  "idx": 22
 }
 
-### TC로그인
-POST http://{{host}}/signin
+
+#### 학생
+
+### SD리스트
+GET http://{{host}}/api/sdUser
 Accept: */*
 Cache-Control: no-cache
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6dHJ1ZSwiZXhwIjoxNTk0MDIxMTU1LCJuYW1lIjoic2NoZW1hayJ9.pm4c4UzB-wNwCeIlDHxUxaV0fXIpQ4IhW8SNHrUmfnE
+
+### SD추가
+POST http://{{host}}/api/sdUser
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6dHJ1ZSwiZXhwIjoxNTk0MDIxMTU1LCJuYW1lIjoic2NoZW1hayJ9.pm4c4UzB-wNwCeIlDHxUxaV0fXIpQ4IhW8SNHrUmfnE
 
 {
-  "id": "schemak",
-  "pwd": "dmddo1004!"
+  "koNm": "김지아",
+  "enNm": "fantajia",
+  "prPhoneNum": "01027391146",
+  "SdPhoneNum": "",
+  "bdYmd": "20170716"
+}
+
+### SD업데이트
+PUT http://{{host}}/api/sdUser
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6dHJ1ZSwiZXhwIjoxNTk0MDIxMTU1LCJuYW1lIjoic2NoZW1hayJ9.pm4c4UzB-wNwCeIlDHxUxaV0fXIpQ4IhW8SNHrUmfnE
+
+{
+  "idx": 3,
+  "koNm": "김지아",
+  "enNm": "fantajia1",
+  "prPhoneNum": "01027391146",
+  "SdPhoneNum": "",
+  "bdYmd": "20170716"
+}
+
+
+### Sd삭제(임시)
+DELETE http://{{host}}/api/sdUser
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6dHJ1ZSwiZXhwIjoxNTk0Mjg4MTY1LCJuYW1lIjoic2NoZW1hayJ9.ge76GvPqRN9j4ONd1hU4Ivb0_MfcMYJOyyWfMuHdP4o
+
+{
+  "idx": 3
 }

@@ -1,0 +1,10 @@
+### TC로그인
+POST http://{{host}}/signin
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+  "id": "schemak",
+  "pwd": "dmddo1004!"
+}

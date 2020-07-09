@@ -26,7 +26,7 @@ func Signin(c echo.Context) error {
 	u := model.TcUser{}
 	fmt.Println(u)
 	db := db.DbManager()
-	err = db.Where(&model.TcUser{EnNm: b.Id, TcPwd: b.Pwd}).First(&u).Error
+	err = db.Where(&model.TcUser{TcId: b.Id, TcPwd: b.Pwd}).First(&u).Error
 	if err != nil {
 		return c.JSON(http.StatusOK, model.ExcuseError{MsgTxt: "로그인에 실패 했습니다.", Success: false})
 	}
@@ -45,5 +45,8 @@ func Signin(c echo.Context) error {
 	if err != nil {
 		return c.JSON(http.StatusOK, model.ExcuseError{MsgTxt: "토큰생성에 실패했습니다. 다시 시도해주세요.", Success: false})
 	}
-	return c.JSON(http.StatusOK, model.SigninExcuseSuccess{Token: t, Success: true})
+	if u.TcSt == 0 {
+		return c.JSON(http.StatusOK, model.ExcuseError{MsgTxt: "계정이 비활성화 상태입니다. 관리자에게 문의하세요.", Success: false})
+	}
+	return c.JSON(http.StatusOK, model.SigninExcuseSuccess{Token: t, Data: model.TcUserRespons{Idx: u.Idx, KoNm: u.KoNm, EnNm: u.EnNm, TcLv: u.TcLv, BdYmd: u.BdYmd}, Success: true})
 }

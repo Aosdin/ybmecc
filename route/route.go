@@ -18,18 +18,23 @@ func Init() *echo.Echo {
 		Claims:     &model.JwtCustomClaims{},
 		SigningKey: []byte("secret"),
 		ErrorHandlerWithContext: func(err error, c echo.Context) error {
-			return c.JSON(http.StatusOK, model.ExcuseError{MsgTxt: "로그인생성에 실패했습니다.", Success: false})
+			return c.JSON(http.StatusOK, model.ExcuseError{MsgTxt: "토큰생성에 실패했습니다.", Success: false})
 		},
 	}
 
 	r.Use(middleware.JWTWithConfig(config))
-
-	//e.GET("/", api.Home)
-	//v1 := app.Group("/api/v1")
+	// Users
+	r.GET("/tcSeniorUser", api.GetSeniorTcList)
 	r.GET("/tcUser", api.GetTcUsers)
 	r.POST("/tcUser", api.AddTcUsers)
 	r.PUT("/tcUser", api.PutTcUsers)
 	r.DELETE("/tcUser", api.DelTcUsers)
+	r.GET("/sdUser", api.GetSdUsers)
+	r.POST("/sdUser", api.AddSdUsers)
+	r.PUT("/sdUser", api.PutSdUsers)
+	r.DELETE("/sdUser", api.DelSdUsers)
+
+	// Auth
 	e.POST("/signin", api.Signin)
 	return e
 }
