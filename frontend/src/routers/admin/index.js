@@ -17,12 +17,12 @@ export default {
       component: Dashboard
     },
     {
-      path: '/teacher',
+      path: '/admin/teacher',
       name: 'admin-teacher',
       component: Teacher
     },
     {
-      path: '/student',
+      path: '/admin/student',
       name: 'admin-student',
       component: Student
     }
