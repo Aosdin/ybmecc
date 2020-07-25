@@ -26,3 +26,10 @@ export function getTeacherAPI () {
       .catch(err => reject(err))
   })
 }
+export function getStudentAPI () {
+  return new Promise((resolve, reject) => {
+    return axiosInstance().get(`/api/sdUser`)
+        .then(response => resolve(response))
+        .catch(err => reject(err))
+  })
+}
