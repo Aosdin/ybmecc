@@ -19,5 +19,11 @@ export default {
         commit(t.GET_WEATHER_FAIL)
         throw err
       })
+  },
+  setDrawer ({ commit }, value) {
+    return commit(t.SET_DRAWER, value)
+  },
+  setUI ({ commit }, key, value) {
+    return commit(t.SET_UI, key, value)
   }
 }

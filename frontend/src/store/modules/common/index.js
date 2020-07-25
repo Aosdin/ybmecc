@@ -4,7 +4,10 @@ import mutations from './mutations'
 
 const state = {
   isAPILoading: false,
-  weather: null
+  drawer: false,
+  ui: {
+    drawer: false
+  },
 }
 
 export default {

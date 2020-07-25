@@ -18,9 +18,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-  .full-base{
-    text-align: center;
-  }
-</style>

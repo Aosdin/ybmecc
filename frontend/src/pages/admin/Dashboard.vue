@@ -1,12 +1,10 @@
 <template>
   <div>
-    <h1>Weather</h1>
-    <weather-info />
+    <h1>Dashboard</h1>
   </div>
 </template>
 
 <script>
-import WeatherInfo from '@/components/api/WeatherInfo.vue'
 export default {
   name: 'Main',
   head: {
@@ -18,8 +16,7 @@ export default {
       { name: 'keywords', content: 'Weather' }
     ]
   },
-  components: {
-    WeatherInfo
+  mounted() {
   }
 }
 </script>

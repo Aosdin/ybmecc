@@ -75,10 +75,12 @@
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex'
 export default {
   name: 'Navigation',
+  props: {
+  },
   data: () => ({
-    drawer: null,
     items: [
       { icon: 'mdi-contacts', text: 'Contacts' },
       { icon: 'mdi-history', text: 'Frequently contacted' },
@@ -111,6 +113,28 @@ export default {
       { icon: 'mdi-cellphone-link', text: 'App downloads' },
       { icon: 'mdi-keyboard', text: 'Go to the old version' },
     ],
-  })
+  }),
+  computed: {
+    ...mapState('common', {
+      _drawer: state => state.drawer,
+      drawer: {
+        get() {
+          return this._drawer
+        },
+        set (_isShown) {
+          this.setDrawerAction('drawer',_isShown)
+        }
+      }
+    }),
+    routeQuery () {
+      const { query = {} } = this.$route
+      return query
+    }
+  },
+  methods: {
+    ...mapActions('common', {
+      setDrawerAction: 'setDrawer',
+    }),
+  }
 }
 </script>
