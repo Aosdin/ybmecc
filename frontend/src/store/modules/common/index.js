@@ -5,6 +5,7 @@ import mutations from './mutations'
 const state = {
   isAPILoading: false,
   drawer: false,
+  teacherList: [],
   ui: {
     drawer: false
   },

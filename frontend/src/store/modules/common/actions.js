@@ -1,5 +1,5 @@
 import * as t from './types'
-import { getWeatherAPI } from './api'
+import { getWeatherAPI, getTeacherAPI } from './api'
 
 export default {
   getWeather ({ commit }, key) {
@@ -17,6 +17,24 @@ export default {
       })
       .catch((err) => {
         commit(t.GET_WEATHER_FAIL)
+        throw err
+      })
+  },
+  getTeacher ({ commit }) {
+    commit(t.GET_TEACHER_PENDING)
+    return Promise.resolve()
+      .then(() => {
+        return getTeacherAPI()
+      })
+      .then((response) => {
+        const result = response.data || {}
+        // const { data } = result || {}
+        // const status = response.status || []
+        commit(t.GET_TEACHER_SUCCESS, { result })
+        return response
+      })
+      .catch((err) => {
+        commit(t.GET_TEACHER_FAIL)
         throw err
       })
   },

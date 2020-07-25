@@ -13,6 +13,13 @@ func Init() *echo.Echo {
 	// Middleware
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
+	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
+		AllowOrigins: []string{"http://127.0.0.1:8081", "http://localhost:8081"},
+		//AllowHeaders:     []string{"authorization", "Content-Type"},
+		AllowCredentials: true,
+		AllowMethods:     []string{echo.OPTIONS, echo.GET, echo.HEAD, echo.PUT, echo.PATCH, echo.POST, echo.DELETE},
+		AllowHeaders:     []string{echo.HeaderContentType, echo.HeaderAccept, echo.HeaderAuthorization},
+	}))
 	r := e.Group("/api")
 	config := middleware.JWTConfig{
 		Claims:     &model.JwtCustomClaims{},

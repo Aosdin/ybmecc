@@ -10,7 +10,7 @@ GET http://{{host}}/api/tcUser
 Accept: */*
 Cache-Control: no-cache
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6dHJ1ZSwiZXhwIjoxNTkzODQ4ODYwLCJuYW1lIjoic2NoZW1hayJ9.G8K3YrPgkPx2KUwFOGFDCinVWbB4atmJ-Bw6PelOe6w
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6dHJ1ZSwiZXhwIjoxNTk1OTI0MzE0LCJuYW1lIjoic2NoZW1hayJ9.9exy8nhC5mIA-eL8gAlGn4mAv9cIQXrE0_ItsQCrkv4
 
 ### TC추가
 POST http://{{host}}/api/tcUser
