@@ -16,14 +16,14 @@ func GetSeniorTcList(c echo.Context) error {
 	db := db.DbManager()
 	users := []model.TcUser{}
 	db.Where("TC_ST = ? AND TC_LV = ?", 1, 1).Find(&users)
-	return c.JSON(http.StatusOK, users)
+	return c.JSON(http.StatusOK, model.ExcuseDataSuccess{Data: users, Success: true})
 }
 
 func GetTcUsers(c echo.Context) error {
 	db := db.DbManager()
 	users := []model.TcUser{}
 	db.Where("TC_ST = ?", 1).Find(&users)
-	return c.JSON(http.StatusOK, users)
+	return c.JSON(http.StatusOK, model.ExcuseDataSuccess{Data: users, Success: true})
 }
 
 func AddTcUsers(c echo.Context) error {
@@ -37,6 +37,7 @@ func AddTcUsers(c echo.Context) error {
 	}
 	b.UpYmd = time.Now().UTC()
 	b.GrYmd = time.Now().UTC()
+	b.TcSt = 1
 	db := db.DbManager()
 	t := model.TcUser{}
 	if db.Where("TC_ID = ?", b.TcId).First(&t).RecordNotFound() {
@@ -97,6 +98,7 @@ func AddSdUsers(c echo.Context) error {
 	}
 	b.UpYmd = time.Now().UTC()
 	b.GrYmd = time.Now().UTC()
+	b.SdSt = 1
 	db := db.DbManager()
 	sd := model.SdUser{}
 	if db.Where("PR_PHONE_NUM = ? AND KO_NM = ?", b.PrPhoneNum, b.KoNm).First(&sd).RecordNotFound() {

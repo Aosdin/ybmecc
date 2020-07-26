@@ -1,9 +1,13 @@
 <template>
-  <div class="full-base">
+  <v-app>
     <header-area />
-    <router-view />
+    <v-main>
+      <v-container fluid>
+        <router-view />
+      </v-container>
+    </v-main>
     <footer-area />
-  </div>
+  </v-app>
 </template>
 
 <script>

@@ -19,9 +19,23 @@ export function getWeatherAPI (key) {
       .catch(err => reject(err))
   })
 }
+export function getSeniorTeacherAPI () {
+  return new Promise((resolve, reject) => {
+    return axiosInstance().get(`/api/tcSeniorUser`)
+      .then(response => resolve(response))
+      .catch(err => reject(err))
+  })
+}
 export function getTeacherAPI () {
   return new Promise((resolve, reject) => {
     return axiosInstance().get(`/api/tcUser`)
+      .then(response => resolve(response))
+      .catch(err => reject(err))
+  })
+}
+export function addTeacherAPI (payload) {
+  return new Promise((resolve, reject) => {
+    return axiosInstance().post(`/api/tcUser`, payload)
       .then(response => resolve(response))
       .catch(err => reject(err))
   })
