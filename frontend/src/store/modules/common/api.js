@@ -47,3 +47,10 @@ export function getStudentAPI () {
         .catch(err => reject(err))
   })
 }
+export function signinAPI () {
+  return new Promise((resolve, reject) => {
+    return axiosInstance().get(`/api/signin`)
+        .then(response => resolve(response))
+        .catch(err => reject(err))
+  })
+}

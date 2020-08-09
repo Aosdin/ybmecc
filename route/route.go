@@ -42,6 +42,6 @@ func Init() *echo.Echo {
 	r.DELETE("/sdUser", api.DelSdUsers)
 
 	// Auth
-	e.POST("/signin", api.Signin)
+	e.POST("/api/signin", api.Signin)
 	return e
 }

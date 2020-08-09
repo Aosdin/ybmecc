@@ -1,5 +1,5 @@
 ### TC로그인
-POST http://{{host}}/signin
+POST http://{{host}}/api/signin
 Accept: */*
 Cache-Control: no-cache
 Content-Type: application/json

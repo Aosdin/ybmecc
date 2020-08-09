@@ -1,6 +1,9 @@
 package api
 
 import (
+	"crypto/hmac"
+	"crypto/sha256"
+	"encoding/hex"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -24,9 +27,9 @@ func Signin(c echo.Context) error {
 	}
 	fmt.Println(b)
 	u := model.TcUser{}
-	fmt.Println(u)
+
 	db := db.DbManager()
-	err = db.Where(&model.TcUser{TcId: b.Id, TcPwd: b.Pwd}).First(&u).Error
+	err = db.Where(&model.TcUser{TcId: b.Id, TcPwd: sha(b.Pwd)}).First(&u).Error
 	if err != nil {
 		return c.JSON(http.StatusOK, model.ExcuseError{MsgTxt: "로그인에 실패 했습니다.", Success: false})
 	}
@@ -49,4 +52,14 @@ func Signin(c echo.Context) error {
 		return c.JSON(http.StatusOK, model.ExcuseError{MsgTxt: "계정이 비활성화 상태입니다. 관리자에게 문의하세요.", Success: false})
 	}
 	return c.JSON(http.StatusOK, model.SigninExcuseSuccess{Token: t, Data: model.TcUserRespons{Idx: u.Idx, KoNm: u.KoNm, EnNm: u.EnNm, TcLv: u.TcLv, BdYmd: u.BdYmd}, Success: true})
+}
+
+func sha(d string) string {
+	secret := "mysecret"
+	fmt.Printf("Secret: %s Data: %s\n", secret, d)
+	h := hmac.New(sha256.New, []byte(secret))
+	h.Write([]byte(d))
+	sha := hex.EncodeToString(h.Sum(nil))
+	fmt.Println("Result: " + sha)
+	return sha
 }
